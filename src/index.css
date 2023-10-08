@@ -1,16 +1,28 @@
-.navbar {
-  border: 1px solid black;
-}
 ul {
   display: flex;
   justify-content: center;
-  gap: 20px;
-}
-li {
+  align-items: center;
+  gap: 30px;
   list-style-type: none;
 }
 
+li {
+  color: black;
+}
 a {
   text-decoration: none;
-  color: black;
+}
+
+.navbar {
+  border: 1px solid black;
+}
+
+.text {
+  font-size: 20px;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
 }
