@@ -26,3 +26,33 @@ body {
   margin: 0;
   padding: 0;
 }
+
+img {
+  border: 1px solid black;
+  height: 200px;
+  width: 200px;
+}
+
+.card {
+  height: 300px;
+  width: 200px;
+  border: 1px solid black;
+}
+
+.shopping {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 100px;
+  margin-top: 200px;
+  margin-bottom: 150px;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
