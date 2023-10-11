@@ -5,20 +5,26 @@ export default function Product ({key}) {
     const [imageURL, setImageURL] = useState(null)
     const [title, setTitle] = useState(null)
     const [price, setPrice] = useState(null)
+    const [error, setError] = useState(null);
+    const [loading, setLoading] = useState(true);
+
+    //fetching product items from fakestore api
     useEffect(() => {
-        fetch('https://fakestoreapi.com/products/1', { mode: "cors" })
-            .then(res=>res.json())
-            .then(json=> setImageURL(json.image))
-            .catch((error) => console.error(error));
-        fetch('https://fakestoreapi.com/products/1', { mode: "cors" })
-            .then(res=>res.json())
-            .then(json=> setTitle(json.title))
-            .catch((error) => console.error(error));
-        fetch('https://fakestoreapi.com/products/1', { mode: "cors" })
-            .then(res=>res.json())
-            .then(json=> setPrice(json.price))
-            .catch((error) => console.error(error));
+        const request1 = fetch('https://fakestoreapi.com/products/1').then(response => response.json());
+        const request2 = fetch('https://fakestoreapi.com/products/1').then(response => response.json());
+        const request3 = fetch('https://fakestoreapi.com/products/1').then(response => response.json());
+        Promise.all([request1, request2, request3])
+        .then(([data1, data2, data3]) => {
+            setImageURL(data1.image);
+            setTitle(data2.title);
+            setPrice(data3.price)
+  })
+  .catch((error) => setError(error))
+  .finally(() => setLoading(false));
     }, [])
+    
+    if (error) return <p>A network error was encountered</p>;
+    if (loading) return <p>Loading...</p>;
     return(
        
         imageURL && (
