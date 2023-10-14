@@ -16,7 +16,7 @@ export default function Router() {
       path: "/",
       element: <Navbar />,
       children: [
-        { path: "home", element: <Home /> },
+        { index: true, element: <Home /> },
         { path: "shopping", element: <Shopping /> },
         { path: "cart", element: <Cart /> },
       ]
