@@ -24,7 +24,7 @@ export default function Shopping () {
         <div className="container">
             <div className="shopping">
                {data.map((item) => {
-                return <Product title={item.title} image={item.image} key={item.id}/>
+                return <Product title={item.title} image={item.image} unitPrice={item.price} key={item.id}/>
                })}
                
             
