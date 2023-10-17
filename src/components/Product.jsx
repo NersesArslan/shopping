@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 
 
-export default function Product ({title, image, unitPrice}) {
+export default function Product ({title, image, unitPrice, addToCart}) {
     const [imageURL, setImageURL] = useState(null)
    
 
@@ -18,10 +18,7 @@ export default function Product ({title, image, unitPrice}) {
      }
 
 
-    const addToCart = () => {
-        //magic code that will add item to cart!
-        alert({title})
-    }
+   
     const listPrice = unitPrice * amount
 
      
