@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 
 
-export default function Product ({title, image, unitPrice, addToCart}) {
+export default function Product ({title, image, unitPrice, setCart, cart}) {
     const [imageURL, setImageURL] = useState(null)
    
 
@@ -17,8 +17,10 @@ export default function Product ({title, image, unitPrice, addToCart}) {
         setAmount(amount - 1)
      }
 
-
-   
+    const returnProductData = () => {
+        console.log({title, image, listPrice, amount});
+        setCart([...cart,{title, image, listPrice, amount}])
+    }
     const listPrice = unitPrice * amount
 
      
@@ -35,7 +37,7 @@ export default function Product ({title, image, unitPrice, addToCart}) {
                     <input type="number" value={amount} onChange={(event)=>setAmount(parseInt(event.target.value))} name="" id="" />
                     <button onClick={increment}>+</button>
                 </div>
-                <button onClick={addToCart}>Add to Cart</button>
+                <button onClick={returnProductData}>Add to Cart</button>
               
             </div>
          

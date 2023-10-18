@@ -1,5 +1,15 @@
-export default function Cart() {
+import { useState } from "react"
+import Product from "./Product"
+export default function Cart({cart}) {
+  
+   
     return(
-        <h1>Cart</h1>
+       <div>
+        {cart.map((item) => {
+            return(
+                <Product unitPrice={item.price} image={item.image} title={item.title} key={item.id}/>
+            )
+        })}
+       </div>
     )
 }

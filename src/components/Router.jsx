@@ -14,8 +14,8 @@ export default function Router() {
   const [data, setData] = useState(null)
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [cart, setCart] = useState([])
 
- 
 
   useEffect(() => {
       fetch('https://fakestoreapi.com/products')
@@ -25,14 +25,16 @@ export default function Router() {
           .finally(() => setLoading(false));
   },[])
 
+  
   const router = createBrowserRouter([
     {
       path: "/",
       element: <Navbar />,
       children: [
         { index: true, element: <Home /> },
-        { path: "shopping", element: <Shopping data={data} /> },
-        { path: "cart", element: <Cart /> },
+        { path: "shopping", element: <Shopping data={data} error={error} loading={loading} setCart={setCart} cart={cart}
+        /> },
+        { path: "cart", element: <Cart cart={cart}/> },
       ]
     },
    
