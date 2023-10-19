@@ -1,13 +1,14 @@
 import { useState } from "react"
 import Product from "./Product"
+import Card from "./Card"
 export default function Cart({cart}) {
   
    
     return(
-       <div>
+       <div className="cart">
         {cart.map((item) => {
             return(
-                <Product unitPrice={item.price} image={item.image} title={item.title} key={item.id}/>
+                <Card image={item.image} title={item.title} price={item.listPrice} amount={item.amount} key={item.id}/>
             )
         })}
        </div>

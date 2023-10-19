@@ -16,17 +16,17 @@ export default function Product ({title, image, unitPrice, setCart, cart}) {
     const decrement = () => {
         setAmount(amount - 1)
      }
-
+     
     const returnProductData = () => {
         console.log({title, image, listPrice, amount});
         setCart([...cart,{title, image, listPrice, amount}])
     }
+    
     const listPrice = unitPrice * amount
-
      
     return(
        (  
-            <div className="card" >
+            <div className="product" >
                 <img src={image} />
                 <h3>{title}</h3>
                 <p>Price: ${listPrice.toFixed(2)}</p>
