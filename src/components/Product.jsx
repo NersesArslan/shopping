@@ -1,14 +1,17 @@
 import { useState, useEffect } from "react"
-
-
-export default function Product ({title, image, unitPrice, setCart, cart}) {
+import AddButton from "./AddButton";
+import RemoveButton from "./RemoveButton";
+export default function Product ({title, image, unitPrice, setCart, cart, id, clickHandler}) {
     const [imageURL, setImageURL] = useState(null)
-   
-
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
     const [amount, setAmount] = useState(1)
-
+    const[button, setButton] = useState(true)
+    
+    const toggleButton = () => {
+        setButton(!button)
+     
+    }
     const increment = () => {
        setAmount(amount + 1)
   
@@ -17,27 +20,28 @@ export default function Product ({title, image, unitPrice, setCart, cart}) {
         setAmount(amount - 1)
      }
      
-    const returnProductData = () => {
-        console.log({title, image, listPrice, amount});
-        setCart([...cart,{title, image, listPrice, amount}])
+    const returnProductData = (e) => {
+        //filter to check if item is already in cart
+      if(cart.map((item) => item.id).includes(id)) {
+        return(alert('this item is already in the cart!'))
+      }
+        setCart([...cart,{title, image, listPrice, amount, id}])
+        console.log(cart);
     }
     
     const listPrice = unitPrice * amount
      
     return(
        (  
-            <div className="product" >
+            <div className="product" id={id}>
                 <img src={image} />
                 <h3>{title}</h3>
-                <p>Price: ${listPrice.toFixed(2)}</p>
-                <label htmlFor="">Amount</label>
-                
-                <div className="input-amount">
-                    <button onClick={decrement}>-</button>
-                    <input type="number" value={amount} onChange={(event)=>setAmount(parseInt(event.target.value))} name="" id="" />
-                    <button onClick={increment}>+</button>
-                </div>
-                <button onClick={returnProductData}>Add to Cart</button>
+               <AddButton 
+               listPrice={listPrice.toFixed(2)} 
+               decrement={decrement} 
+               amount={amount} 
+               increment={increment} 
+               clickHandler={returnProductData}/>
               
             </div>
          

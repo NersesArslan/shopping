@@ -23,7 +23,7 @@ export default function Router() {
           .then(json=> setData(json))       
           .catch((error) => setError(error))
           .finally(() => setLoading(false));
-  },[])
+  },[cart])
 
   
   const router = createBrowserRouter([
