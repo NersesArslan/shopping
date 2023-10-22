@@ -20,7 +20,7 @@ export default function Product ({title, image, unitPrice, setCart, cart, id, cl
         setAmount(amount - 1)
      }
      
-    const returnProductData = (e) => {
+    const addToCart = (e) => {
         //filter to check if item is already in cart
       if(cart.map((item) => item.id).includes(id)) {
         return(alert('this item is already in the cart!'))
@@ -41,8 +41,7 @@ export default function Product ({title, image, unitPrice, setCart, cart, id, cl
                decrement={decrement} 
                amount={amount} 
                increment={increment} 
-               clickHandler={returnProductData}/>
-              
+               clickHandler={addToCart}/>
             </div>
          
            )
