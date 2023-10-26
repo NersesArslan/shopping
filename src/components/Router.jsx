@@ -34,7 +34,7 @@ export default function Router() {
         { index: true, element: <Home /> },
         { path: "shopping", element: <Shopping data={data} error={error} loading={loading} setCart={setCart} cart={cart}
         /> },
-        { path: "cart", element: <Cart cart={cart}/> },
+        { path: "cart", element: <Cart cart={cart} setCart={setCart}/> },
       ]
     },
    
