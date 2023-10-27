@@ -6,21 +6,25 @@ input::-webkit-inner-spin-button {
 
 ul {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 30px;
+  gap: 100px;
+  justify-content: space-between;
   list-style-type: none;
 }
 
-li {
-  color: black;
-}
 a {
   text-decoration: none;
+  color: black;
 }
 
 .navbar {
   border: 1px solid black;
+  position: sticky;
+  top: 0;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
 }
 
 .text {
@@ -86,6 +90,7 @@ img {
 
 li {
   color: black;
+  font-size: 28px;
 }
 
 input {
@@ -103,4 +108,8 @@ input {
 
 .price {
   font-size: 25px;
+}
+
+* {
+  font-family: Arial, Helvetica, sans-serif;
 }

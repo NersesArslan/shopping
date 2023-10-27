@@ -29,7 +29,7 @@ export default function Router() {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Navbar />,
+      element: <Navbar cart={cart} />,
       children: [
         { index: true, element: <Home /> },
         { path: "shopping", element: <Shopping data={data} error={error} loading={loading} setCart={setCart} cart={cart}

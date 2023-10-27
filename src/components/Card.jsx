@@ -7,7 +7,7 @@ const remove = () => {
         <div className="card">
             <img src={image} alt="" />
             <h2>{title}</h2>
-            <h4 className="price">Price: ${price}</h4>
+            <h4 className="price">Price: ${price.toFixed(2)}</h4>
             <h4>Amount: {amount}</h4>
             <button onClick={remove}>Remove</button>
         </div>

@@ -26,7 +26,7 @@ export default function Product ({title, image, unitPrice, setCart, cart, id, cl
         return(alert('this item is already in the cart!'))
       }
         setCart([...cart,{title, image, listPrice, amount, id}])
-        console.log(cart);
+        // console.log(cart);
     }
     
     const listPrice = unitPrice * amount

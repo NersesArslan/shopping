@@ -5,8 +5,8 @@ export default function Cart({cart, setCart}) {
   function clear() {
     setCart([])
   }
-   
- 
+  const total = (cart.length) ? cart.map((item) => item.listPrice).reduce((a, b) => a + b) : 0
+
     return(
        <div className="cart">
         {cart.map((item) => {
@@ -15,7 +15,10 @@ export default function Cart({cart, setCart}) {
             )
         })}
 
-        <button onClick={clear}>Empty Cart</button>
+        {/* <button onClick={clear}>Empty Cart</button> */}
+       
+       <h2>Total: ${total}</h2>
+       <button>Checkout</button>
        </div>
     )
 }

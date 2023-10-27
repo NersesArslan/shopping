@@ -1,5 +1,7 @@
 import { Link , Outlet} from "react-router-dom"
-export default function Navbar() {
+import { BsCart } from "react-icons/Bs";
+
+export default function Navbar({cart}) {
     return(
       
     <div >
@@ -12,7 +14,7 @@ export default function Navbar() {
                    <Link to="shopping">Shopping</Link>
                </li>
                <li>
-                   <Link to="cart">Cart</Link>
+                   <Link to="cart"><BsCart/> {cart.length}</Link>
                </li>
             </ul>
         </nav>
