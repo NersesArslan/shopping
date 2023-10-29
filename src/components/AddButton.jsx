@@ -1,4 +1,4 @@
-export default function AddButton({listPrice, decrement, amount, increment, clickHandler}) {
+export default function AddButton({listPrice, decrement, amount, increment, clickHandler, setAmount}) {
 
     return(
         <div>

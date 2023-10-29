@@ -1,4 +1,4 @@
-import { Link , Outlet} from "react-router-dom"
+import { NavLink , Outlet} from "react-router-dom"
 import { BsCart } from "react-icons/Bs";
 
 export default function Navbar({cart}) {
@@ -8,13 +8,19 @@ export default function Navbar({cart}) {
         <nav className="navbar">
             <ul>
             <li>
-                   <Link to="/">Home</Link>
+                   <NavLink  style={({ isActive }) =>
+            isActive ? { color: "red" } : { color: "black" }
+          } to="/">Home</NavLink>
                </li>
                <li>
-                   <Link to="shopping">Shopping</Link>
+                   <NavLink style={({ isActive }) =>
+            isActive ? { color: "red" } : { color: "black" }
+          } to="shopping">Shopping</NavLink>
                </li>
                <li>
-                   <Link to="cart"><BsCart/> {cart.length}</Link>
+                   <NavLink style={({ isActive }) =>
+            isActive ? { color: "red" } : { color: "black" }
+          } to="cart"><BsCart/> {cart.length}</NavLink>
                </li>
             </ul>
         </nav>
