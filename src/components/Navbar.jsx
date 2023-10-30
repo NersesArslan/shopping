@@ -1,5 +1,5 @@
 import { NavLink , Outlet} from "react-router-dom"
-import { BsCart } from "react-icons/Bs";
+import { BsCart } from "react-icons/bs";
 
 export default function Navbar({cart}) {
     return(
